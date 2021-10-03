@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	string txt = "lolollllooolllollloool";
+	string pattern = "loool";
+
+	int x = txt.length();
+	int y = pattern.length();
+
+	for (int i = 0; i <= x - y; i++)
+	{
+		int count = 0;
+		for (int j = 0; j < y; j++)
+		{
+			if (pattern[j] == txt[i + j])
+			{
+				count++;
+			}
+		}
+
+		if (count == y)
+		{
+			cout << i << "\n";
+		}
+	}
+
+	return 0;
+}
