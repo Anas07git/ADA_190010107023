@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define rep(i,a,b) for(int i=a;i<b;i++)
+const int inf=1e9;
+int main(){
+     
+     
+     vector<vector<int>> graph= { {0,5,inf,10},
+                                   {inf,0,3,inf},
+                                   {inf,inf,0,1},
+                                   {inf,inf,inf,0},
+
+
+     };
+     int n=graph.size();
+     vector<vector<int>> dist=graph;
+     rep(k,0,n){
+         rep(i,0,n){
+             rep(j,0,n){
+                 if(dist[i][k] + dist[k][j]<dist[i][j]){
+                     dist[i][j]=dist[i][k] + dist[k][j];
+                 }
+             }
+         }
+     }
+     rep(i,0,n){
+         rep(j,0,n){
+             if(dist[i][j]==inf){
+                 cout<<"INF"<<" ";
+
+             }
+             else
+                 cout<<dist[i][j]<<" ";
+             
+             
+         }
+         cout<<endl;
+     }
+    return 0;
+}
